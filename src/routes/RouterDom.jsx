@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 
 import Login from "../pages/login";
-import Register from "../pages/register";
-import Dasboard from "../pages/dasboard";
+import Register from "../pages/Register";
+import Dasboard from "../pages/Dasboard";
 import { validartoken } from "../services/api";
 
 const isAuthenticated = validartoken(localStorage.getItem("token"));

@@ -59,3 +59,81 @@ export async function validartoken(token) {
     return null;
   }
 }
+
+export async function getNotes(token) {
+  try {
+    const data = await fetch(`${BACKEND_URL}/api/note/all`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${token}`,
+      },
+    });
+
+    if (!data.ok) {
+      return false;
+    }
+    return await data.json();
+  } catch (error) {
+    return null;
+  }
+}
+
+export async function createNote(token, note) {
+  try {
+    const data = await fetch(`${BACKEND_URL}/api/note/create_note`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${token}`,
+      },
+      body: JSON.stringify(note),
+    });
+
+    if (!data.ok) {
+      return false;
+    }
+    return await data.json();
+  } catch (error) {
+    return null;
+  }
+}
+
+
+export async function updateNote(token, id, note) {
+  try {
+    const data = await fetch(`${BACKEND_URL}/api/note/put/${id}`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${token}`,
+      },
+      body: JSON.stringify(note),
+    });
+
+    if (!data.ok) {
+      return false;
+    }
+    return await data.json();
+  } catch (error) {
+    return null;
+  }
+}
+
+export async function deleteNote(token, id) {
+  try {
+    const data = await fetch(`${BACKEND_URL}/api/note/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${token}`,
+      },
+    });
+
+    if (!data.ok) {
+      return false;
+    }
+    return await data.json();
+  } catch (error) {
+    return null;
+  }
+} 
