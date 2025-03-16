@@ -1,12 +1,35 @@
-# React + Vite
+# Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción del Proyecto
 
-Currently, two official plugins are available:
+Es la interfaz de usuario para gestionar notas personales de forma sencilla e intuitiva. Esta aplicación web permite a los usuarios registrarse, autenticarse y administrar sus notas mediante una experiencia visual atractiva. Este proyecto contiene únicamente el código del frontend y se conecta a una API RESTful.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Stack
 
-## Expanding the ESLint configuration
+- React.js
+- Tailwind CSS
+- React Hook Form
+- Fetch API (para consumir la API REST)
+- React Router
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Ejecución
+
+1. **Instalar las dependencias**
+
+    ```bash
+    npm install
+    ```
+
+2. **Correr la aplicación**
+
+    ```bash
+    npm run dev
+    ```
+
+3. Accede a la aplicación en `http://localhost:5173`.  
+   Asegúrate de que la API REST (Backend) esté corriendo y accesible (por ejemplo, en `http://localhost:4000`), ya que el frontend consume sus endpoints.
+
+## Notas Adicionales
+
+- Verifica que las URLs de la API definidas en el archivo `services/api.js` estén correctamente configuradas.
+- La autenticación se realiza mediante JWT, el cual se almacena en el `localStorage` para proteger las rutas.
