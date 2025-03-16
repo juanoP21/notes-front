@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
-import { login } from "../api/auth";
+import {loginUser}  from "../services/api.js";
 
 const Login = () => {
   const {
@@ -13,7 +13,8 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const result = await login(data);
+      console.log(data);
+      const result = await loginUser(data);
       if (result.token) {
         localStorage.setItem("token", result.token);
         navigate("/dashboard");
@@ -30,11 +31,11 @@ const Login = () => {
         <h2 className="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
-            <label className="block text-gray-700">Correo electrónico</label>
+            <label className="block text-gray-700">Username</label>
             <input
-              type="email"
-              {...register("email", { required: true })}
-              className="mt-1 p-2 w-full border rounded"
+              type="text"
+              {...register("username", { required: true })}
+              className="mt-1 p-2 w-full border rounded bg-gray-100 text-black"
               placeholder="ejemplo@correo.com"
             />
             {errors.email && (
@@ -46,7 +47,7 @@ const Login = () => {
             <input
               type="password"
               {...register("password", { required: true })}
-              className="mt-1 p-2 w-full border rounded"
+              className="mt-1 p-2 w-full border rounded bg-gray-100 text-black"
               placeholder="********"
             />
             {errors.password && (
@@ -60,7 +61,7 @@ const Login = () => {
             Ingresar
           </button>
         </form>
-        <p className="mt-4 text-center">
+        <p className="mt-4 text-center text-black">
           ¿No tienes cuenta?{" "}
           <Link to="/register" className="text-blue-500">
             Regístrate
