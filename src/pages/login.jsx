@@ -13,7 +13,6 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
       const result = await loginUser(data);
       if (result.token) {
         localStorage.setItem("token", result.token);
