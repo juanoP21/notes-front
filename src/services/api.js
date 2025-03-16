@@ -18,7 +18,7 @@ export async function loginUser(user) {
     localStorage.setItem("user", response);
     return response;
   } catch (error) {
-    return null;
+    return error;
   }
 }
 
@@ -37,7 +37,7 @@ export async function registerUser(user) {
     }
     return await data.json();
   } catch (error) {
-    return null;
+    return error;
   }
 }
 
@@ -56,7 +56,7 @@ export async function validartoken(token) {
     }
     return await data.json();
   } catch (error) {
-    return null;
+    return error;
   }
 }
 
@@ -74,7 +74,7 @@ export async function getNotes(token) {
     }
     return await data.json();
   } catch (error) {
-    return null;
+    return error;
   }
 }
 
@@ -94,7 +94,7 @@ export async function createNote(token, note) {
     }
     return await data.json();
   } catch (error) {
-    return null;
+    return error;
   }
 }
 
@@ -115,7 +115,7 @@ export async function updateNote(token, id, note) {
     }
     return await data.json();
   } catch (error) {
-    return null;
+    return error;
   }
 }
 
@@ -134,6 +134,6 @@ export async function deleteNote(token, id) {
     }
     return await data.json();
   } catch (error) {
-    return null;
+    return error;
   }
 } 
